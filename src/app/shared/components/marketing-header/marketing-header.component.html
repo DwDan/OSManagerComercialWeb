@@ -1,0 +1,32 @@
+<header class="header">
+  <div class="container header__content">
+    <a routerLink="/" class="header__logo">
+      <span class="header__mark">OS</span>
+      <span>{{ literals().brand.name }}</span>
+    </a>
+
+    <nav class="header__nav">
+      <a href="#features">
+        {{ literals().nav.features }}
+      </a>
+
+      <a href="#plans">
+        {{ literals().nav.plans }}
+      </a>
+
+      <a href="#faq">
+        {{ literals().nav.faq }}
+      </a>
+    </nav>
+
+    <div class="header__actions">
+      <a [href]="appUrl + '/login'" class="button button--ghost">
+        {{ literals().actions.login }}
+      </a>
+
+      <a routerLink="/signup" class="button button--primary">
+        {{ literals().actions.startFree }}
+      </a>
+    </div>
+  </div>
+</header>

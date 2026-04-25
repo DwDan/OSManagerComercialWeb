@@ -1,0 +1,27 @@
+<section class="features" id="features">
+  <div class="container">
+    <div class="section-heading">
+      <span>{{ literals().heading.tag }}</span>
+
+      <h2>{{ literals().heading.title }}</h2>
+
+      <p>
+        {{ literals().heading.description }}
+      </p>
+    </div>
+
+    <div class="features__grid">
+      @for (feature of features(); track feature.title) {
+        <article class="feature-card">
+          <div class="feature-card__icon">
+            {{ feature.icon }}
+          </div>
+
+          <h3>{{ feature.title }}</h3>
+
+          <p>{{ feature.description }}</p>
+        </article>
+      }
+    </div>
+  </div>
+</section>

@@ -1,0 +1,100 @@
+<app-marketing-header />
+
+<section class="hero">
+  <div class="hero__grid"></div>
+  <div class="hero__glow"></div>
+
+  <div class="hero__container">
+    <div class="hero__content">
+      <div class="hero__copy">
+        <h1>
+          {{ literals().hero.titlePrefix }}
+          <strong>{{ literals().hero.titleHighlight }}</strong>
+        </h1>
+
+        <p>
+          {{ literals().hero.description }}
+        </p>
+
+        <div class="hero__actions">
+          <a routerLink="/signup" class="button button--primary">
+            {{ literals().hero.actions.trial }}
+            <span>→</span>
+          </a>
+
+          <a href="#plans" class="button button--secondary">
+            {{ literals().hero.actions.plans }}
+          </a>
+        </div>
+
+        <div class="hero__checks">
+          <div>
+            <span>✓</span>
+            {{ literals().hero.checks.noCreditCard }}
+          </div>
+
+          <div>
+            <span>⚡</span>
+            {{ literals().hero.checks.fastActivation }}
+          </div>
+        </div>
+      </div>
+
+      <div class="hero__visual">
+        <div class="dashboard">
+          <div class="dashboard__top">
+            <span>{{ literals().dashboard.url }}</span>
+
+            <div>
+              <span></span>
+              {{ literals().dashboard.status }}
+            </div>
+          </div>
+
+          <div class="dashboard__metric">
+            <small>{{ literals().dashboard.metricLabel }}</small>
+
+            <div>
+              <strong>247</strong>
+              <span>{{ literals().dashboard.metricVariation }}</span>
+            </div>
+          </div>
+
+          @for (order of orders(); track order.title) {
+            <div [class]="order.className">
+              <span></span>
+
+              <div>
+                <strong>{{ order.title }}</strong>
+                <small>{{ order.status }}</small>
+              </div>
+            </div>
+          }
+        </div>
+
+        <div class="sla-card">
+          <small>{{ literals().dashboard.sla.label }}</small>
+          <strong>{{ literals().dashboard.sla.value }}</strong>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero__trust">
+      <p>{{ literals().trust.text }}</p>
+
+      <div>
+        @for (company of companies; track company) {
+          <span>{{ company }}</span>
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+<app-features-section />
+
+<app-pricing-section />
+
+<app-faq-section />
+
+<app-marketing-footer />

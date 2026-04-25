@@ -1,0 +1,68 @@
+<section class="pricing" id="plans">
+  <div class="container">
+    <div class="section-heading">
+      <span>{{ literals().heading.tag }}</span>
+
+      <h2>{{ literals().heading.title }}</h2>
+
+      <p>{{ literals().heading.description }}</p>
+    </div>
+
+    <div class="pricing__grid">
+      @for (plan of plans(); track plan.id) {
+        <article
+          class="pricing-card"
+          [class.pricing-card--highlight]="plan.isRecommended"
+        >
+          @if (plan.isRecommended) {
+            <div class="badge">
+              {{ literals().badge.recommended }}
+            </div>
+          }
+
+          <h3>{{ plan.name }}</h3>
+
+          <p class="pricing-card__desc">
+            {{ plan.code }}
+          </p>
+
+          <div class="pricing-card__price">
+            @if (plan.price === 0) {
+              <strong>{{ literals().price.free }}</strong>
+            } @else {
+              <strong>
+                {{ plan.price | currency: "BRL" : "symbol" : "1.2-2" }}
+              </strong>
+              <span>{{ literals().price.perMonth }}</span>
+            }
+          </div>
+
+          <ul>
+            @for (featureKey of plan.featureKeys; track featureKey) {
+              <li>
+                {{ getFeatureLabel(featureKey) }}
+              </li>
+            }
+
+            <li>
+              {{ getAdminUsersLabel(plan) }}
+            </li>
+
+            @if (getOrdersLabel(plan); as ordersLabel) {
+              <li>{{ ordersLabel }}</li>
+            }
+          </ul>
+
+          <a
+            [routerLink]="getActionRoute(plan)"
+            class="button"
+            [class.button--primary]="plan.isRecommended"
+            [class.button--secondary]="!plan.isRecommended"
+          >
+            {{ getActionLabel(plan) }}
+          </a>
+        </article>
+      }
+    </div>
+  </div>
+</section>

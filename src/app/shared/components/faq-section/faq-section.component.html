@@ -1,0 +1,23 @@
+<section class="faq" id="faq">
+  <div class="container">
+    <div class="section-heading">
+      <span>{{ literals().heading.tag }}</span>
+
+      <h2>{{ literals().heading.title }}</h2>
+
+      <p>
+        {{ literals().heading.description }}
+      </p>
+    </div>
+
+    <div class="faq__list">
+      @for (item of questions(); track item.question) {
+        <details class="faq-item">
+          <summary>{{ item.question }}</summary>
+
+          <p>{{ item.answer }}</p>
+        </details>
+      }
+    </div>
+  </div>
+</section>

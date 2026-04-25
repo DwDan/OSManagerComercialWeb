@@ -1,0 +1,58 @@
+<footer class="footer">
+  <div class="container">
+    <div class="footer__content">
+      <div class="footer__brand">
+        <strong>{{ literals().brand.name }}</strong>
+
+        <p>
+          {{ literals().brand.description }}
+        </p>
+      </div>
+
+      <nav class="footer__links">
+        <div>
+          <h4>{{ literals().sections.product }}</h4>
+
+          <a href="#features">
+            {{ literals().links.features }}
+          </a>
+
+          <a href="#plans">
+            {{ literals().links.plans }}
+          </a>
+
+          <a routerLink="/signup">
+            {{ literals().links.freeTrial }}
+          </a>
+        </div>
+
+        <div>
+          <h4>{{ literals().sections.company }}</h4>
+
+          <a routerLink="/contact">
+            {{ literals().links.contact }}
+          </a>
+
+          <a routerLink="/login">
+            {{ literals().links.login }}
+          </a>
+        </div>
+
+        <div>
+          <h4>{{ literals().sections.contact }}</h4>
+
+          <a href="mailto:contato@osmanager.com.br">
+            contato@osmanager.com.br
+          </a>
+
+          <a href="tel:+5531999999999"> (31) 99999-9999 </a>
+        </div>
+      </nav>
+    </div>
+
+    <div class="footer__bottom">
+      <span>{{ literals().bottom.rights }}</span>
+      <span>{{ literals().bottom.madeFor }}</span>
+    </div>
+  </div>
+</footer>

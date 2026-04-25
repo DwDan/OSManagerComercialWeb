@@ -1,0 +1,98 @@
+<section class="signup">
+  <div class="signup__panel">
+    <a routerLink="/" class="signup__logo">
+      {{ literals().brand.name }}
+    </a>
+
+    @if (success()) {
+      <div class="success-card">
+        <span>{{ literals().success.icon }}</span>
+
+        <h1>{{ literals().success.title }}</h1>
+
+        <p>
+          {{ literals().success.description }}
+        </p>
+
+        <a routerLink="/" class="button button--secondary">
+          {{ literals().success.action }}
+        </a>
+      </div>
+    } @else {
+      <div class="signup__header">
+        <span>{{ literals().header.tag }}</span>
+
+        <h1>{{ literals().header.title }}</h1>
+
+        <p>
+          {{ literals().header.description }}
+        </p>
+      </div>
+
+      <form [formGroup]="form" (ngSubmit)="submit()" class="signup__form">
+        <label>
+          {{ literals().fields.name }}
+
+          <input
+            type="text"
+            formControlName="name"
+            [placeholder]="literals().placeholders.name"
+          />
+        </label>
+
+        <label>
+          {{ literals().fields.document }}
+
+          <input
+            type="text"
+            formControlName="document"
+            [placeholder]="literals().placeholders.document"
+          />
+        </label>
+
+        <label>
+          {{ literals().fields.email }}
+
+          <input
+            type="email"
+            formControlName="email"
+            [placeholder]="literals().placeholders.email"
+          />
+        </label>
+
+        <label>
+          {{ literals().fields.phoneNumber }}
+
+          <input
+            type="text"
+            formControlName="phoneNumber"
+            [placeholder]="literals().placeholders.phoneNumber"
+          />
+        </label>
+
+        <div class="signup__slug">
+          <strong>{{ literals().slug.label }}</strong>
+          <span>{{ slug() || literals().slug.empty }}</span>
+        </div>
+
+        @if (errorMessage()) {
+          <div class="signup__error">
+            {{ errorMessage() }}
+          </div>
+        }
+
+        <button
+          type="submit"
+          class="button button--primary"
+          [disabled]="loading()"
+        >
+          {{
+            loading()
+              ? literals().actions.submitting
+              : literals().actions.submit
+          }}
+        </button>
+      </form>
+    }
+  </div>
+</section>
