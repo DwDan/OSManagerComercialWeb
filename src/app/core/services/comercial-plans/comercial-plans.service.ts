@@ -12,7 +12,7 @@ export class CommercialPlansService {
 
   getAll(): Observable<CommercialPlanListItemResponse[]> {
     return this.httpClient.get<CommercialPlanListItemResponse[]>(
-      `${environment.apiUrl}/api/commercial/plans`,
+      `${environment.apiUrl}/commercial/plans`,
     );
   }
 }

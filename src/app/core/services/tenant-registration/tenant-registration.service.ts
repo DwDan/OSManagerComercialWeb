@@ -12,7 +12,7 @@ export class TenantRegistrationService {
 
   createTrial(request: CreateTenantTrialRequest): Observable<string> {
     return this.httpClient.post<string>(
-      `${environment.apiUrl}/api/commercial/tenants`,
+      `${environment.apiUrl}/commercial/tenants`,
       request,
     );
   }
